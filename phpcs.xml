@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset name="PSR2">
+    <description>PSR2</description>
+
+    <!-- display progress -->
+    <arg value="p"/>
+    <arg name="colors"/>
+
+    <!-- inherit rules from: -->
+    <rule ref="PSR2"/>
+    <rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+    <rule ref="Squiz.WhiteSpace.SuperfluousWhitespace">
+        <properties>
+            <property name="ignoreBlankLines" value="false"/>
+        </properties>
+    </rule>
+
+    <exclude-pattern>vendor</exclude-pattern>
+    <exclude-pattern>resources</exclude-pattern>
+    <exclude-pattern>database/</exclude-pattern>
+    <exclude-pattern>storage/</exclude-pattern>
+    <exclude-pattern>public/</exclude-pattern>
+    <exclude-pattern>bootstrap/</exclude-pattern>
+    <exclude-pattern>node_modules/</exclude-pattern>
+
+    <!-- Paths to check -->
+    <file>app</file>
+</ruleset>
