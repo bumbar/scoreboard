@@ -29,7 +29,7 @@
                           {{ $departure->cityTo->name }}
                       </td>
                       <td>
-                          {{ \Carbon\Carbon::parse($departure->departure_at)->format('j F, Y h:i:s A') }}
+                          {{ \Carbon\Carbon::parse($departure->departure_at)->format('j F, Y H:i:s') }}
                       </td>
                       @if($departure->trashed())
                           <td>
