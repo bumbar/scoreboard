@@ -12,6 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->truncate();
+        DB::table('cities')->truncate();
         DB::table('passengers')->truncate();
         DB::table('departures')->truncate();
 

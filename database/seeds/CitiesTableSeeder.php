@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use App\Models\City;
 
@@ -20,8 +19,6 @@ class CitiesTableSeeder extends Seeder
             'Габрово', 'Велико Търново', 'Добрич', 'Попово', 'Монтана', 'Перник', 'Радомир',
             'Белово', 'Костенец', 'Първомай'
             ];
-
-        DB::table('cities')->truncate();
 
         for ($i = 0; $i < count($cities); $i++) {
             City::create([
