@@ -33,14 +33,13 @@ class AppServiceProvider extends ServiceProvider
         $minutes = 1440; # 1 day
         $cities = Cache::remember('cities', $minutes, function () {
 
-            $hours = 3;
-            $now = new \DateTime(); //current date/time
-            $now->add(new \DateInterval("PT{$hours}H"));
-            $new_time = $now->format('H:i:s');
+            // config/app.php
+            // change 'timezone' => 'UTC' to 'timezone' => 'Europe/Sofia'
+            $now = (new \DateTime())->format('H:i:s'); //current date/time
 
             return City::leftJoin('departures', 'departures.from_id', '=', 'cities.id')
                 ->selectRaw('cities.name, count(*) as cnt')
-                ->whereTime('departures.departure_at', '>=', $new_time)
+                ->whereTime('departures.departure_at', '>=', $now)
                 ->groupBy('departures.from_id')
                 ->get();
         });

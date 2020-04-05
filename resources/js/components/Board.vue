@@ -69,7 +69,6 @@
             diff_minutes(date, el) {
                 let currentDate = new Date();
                 let inputDate = new Date(date);
-                inputDate.setHours(inputDate.getHours() - 3); // !!!!!!
                 let diff = (inputDate.getTime() - currentDate.getTime()) / 1000;
                 diff /= 60;
 

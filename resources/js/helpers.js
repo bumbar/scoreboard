@@ -1,7 +1,6 @@
 export default  {
     format_date(date) {
         let inputDate = new Date(date);
-        inputDate.setHours(inputDate.getHours() - 3); // !!!!!!
         return inputDate.toLocaleDateString('bg-BG', {
             day : 'numeric',
             month : 'short',
