@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Passenger;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 
 class AddPassengers extends Command
 {
@@ -39,5 +40,6 @@ class AddPassengers extends Command
     public function handle()
     {
         factory(Passenger::class, 10)->create();
+        Artisan::call('cache:clear');
     }
 }
