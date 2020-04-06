@@ -12,7 +12,7 @@ class AddPassengers extends Command
      *
      * @var string
      */
-    protected $signature = 'command:addPassengers';
+    protected $signature = 'add:passengers';
 
     /**
      * The console command description.
