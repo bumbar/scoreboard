@@ -2,24 +2,24 @@
 
 namespace App\Console\Commands;
 
+use App\Models\Passenger;
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\Artisan;
 
-class BuildScoreboard extends Command
+class AddPassengers extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:scoreboard';
+    protected $signature = 'command:addPassengers';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Add scoreboard';
+    protected $description = 'Add more Passengers';
 
     /**
      * Create a new command instance.
@@ -38,6 +38,6 @@ class BuildScoreboard extends Command
      */
     public function handle()
     {
-        Artisan::call('db:seed');
+        factory(Passenger::class, 10)->create();
     }
 }
