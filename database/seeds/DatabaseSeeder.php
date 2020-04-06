@@ -12,14 +12,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->truncate();
-        DB::table('cities')->truncate();
-        DB::table('passengers')->truncate();
+        //DB::table('users')->truncate();
+        //DB::table('cities')->truncate();
+        //DB::table('passengers')->truncate();
         DB::table('departures')->truncate();
 
-        $this->call(UsersTableSeeder::class);
-        $this->call(CitiesTableSeeder::class);
+        //$this->call(UsersTableSeeder::class);
+        //$this->call(CitiesTableSeeder::class);
         $this->call(DepartureTableSeeder::class);
-        $this->call(PassengersTableSeeder::class);
+        //$this->call(PassengersTableSeeder::class);
     }
 }
