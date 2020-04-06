@@ -40,6 +40,5 @@ class AddPassengers extends Command
     public function handle()
     {
         factory(Passenger::class, 10)->create();
-        Artisan::call('cache:clear');
     }
 }
