@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Departure;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Cities extends JsonResource
@@ -14,7 +15,7 @@ class Cities extends JsonResource
         "id":1,
         "name":"София",
         "slug":"sofiya",
-        "relationCityWithDepartures":{
+        "relationCityFromDepartures":{
             "name":"София",
             "slug":"sofiya",
             "count":1
@@ -28,9 +29,8 @@ class Cities extends JsonResource
     public function toArray($request)
     {
         return [
-            //'id' => $this->id,
-            //'name' => $this->name,
-            //'slug' => $this->slug,
+            'id' => $this->id,
+            'name' => $this->name,
             'from' => $this->sectionsCitiesFromDepartures,
             'to' => $this->sectionsCitiesToDepartures,
         ];

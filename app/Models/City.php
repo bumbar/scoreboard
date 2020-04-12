@@ -32,4 +32,21 @@ class City extends Model
             ->whereTime('departure_at', '>=', $now)
             ->groupBy('from_id');
     }
+
+    /**
+     * Select only records bigger than now() time
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @throws \Exception
+     */
+    public function sectionsCitiesToDepartures()
+    {
+        $now = (new \DateTime())->format('H:i:s');
+
+        return $this->hasOne(Departure::class, 'to_id')
+            ->selectRaw('cities.id, cities.name, cities.slug, count(*) as count')
+            ->join('cities', 'cities.id', 'to_id')
+            ->whereTime('departure_at', '>=', $now)
+            ->groupBy('to_id');
+    }
 }
