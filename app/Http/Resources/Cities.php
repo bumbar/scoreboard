@@ -31,7 +31,8 @@ class Cities extends JsonResource
             //'id' => $this->id,
             //'name' => $this->name,
             //'slug' => $this->slug,
-            'relationCityWithDepartures' => $this->sectionsCitiesWithDepartures,
+            'from' => $this->sectionsCitiesFromDepartures,
+            'to' => $this->sectionsCitiesToDepartures,
         ];
     }
 }

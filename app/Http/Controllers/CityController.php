@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 class CityController extends Controller
 {
 
-//    public function index()
-//    {
-//        $cities = City::all();
-//
-//        dd(Cities::collection($cities));
-//    }
+    public function index()
+    {
+        $cities = City::all();
+
+        dd(Cities::collection($cities));
+    }
 
     public function getCities()
     {

@@ -3,20 +3,22 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button @click="clearSession" class="btn btn-warning m-2">Опресняване на таблото&nbsp;&nbsp;
             <i class="fa fa-refresh" aria-hidden="true"></i></button>
         <ul id="list-group">
-            <li v-if="cities[index].relationCityWithDepartures" :key="index" class="list-group-item" style="font-size:16px" v-for="(item, index) in cities">
-                    <a :class="{ active : active_el === cities[index].relationCityWithDepartures.id }"
-                       :href="`/departures?from=` + cities[index].relationCityWithDepartures.id"
-                       @click.prevent="activate(cities[index].relationCityWithDepartures.id, 'from', cities[index].relationCityWithDepartures.id)"
-                    >{{ cities[index].relationCityWithDepartures.name }}
+            <li v-if="cities[index].from" :key="index" class="list-group-item" style="font-size:16px" v-for="(item, index) in cities">
+                    <a :class="{ active : active_el === cities[index].from.id }"
+                       :href="`/departures?from=` + cities[index].from.id"
+                       @click.prevent="activate(cities[index].from.id, 'from', cities[index].from.id)"
+                    >{{ cities[index].from.name }}
                     </a>
                     <div class="float-md-right">
-                        <a :href="`/departures?from=` + cities[index].relationCityWithDepartures.id"
-                           @click.prevent="fromOrTo(cities[index].relationCityWithDepartures.id, 'from', cities[index].relationCityWithDepartures.id)"
-                           class="btn btn-outline-info btn-sm">От</a>
-                        <a :href="`/departures?to=` + cities[index].relationCityWithDepartures.id"
-                           @click.prevent="fromOrTo(cities[index].relationCityWithDepartures.id, 'to', cities[index].relationCityWithDepartures.id)"
+                        <a :href="`/departures?from=` + cities[index].from.id"
+                           @click.prevent="fromOrTo(cities[index].from.id, 'from', cities[index].from.id)"
+                           class="btn btn-outline-info btn-sm">От
+                            <span class="badge badge-info">{{ cities[index].from.count }}</span>
+                        </a>
+
+                        <a :href="`/departures?to=` + cities[index].from.id"
+                           @click.prevent="fromOrTo(cities[index].from.id, 'to', cities[index].from.id)"
                            class="btn btn-outline-info btn-sm">До</a>
-                            &nbsp;<span class="badge badge-info"> {{ cities[index].relationCityWithDepartures.count }} </span>
                     </div>
             </li>
         </ul>
