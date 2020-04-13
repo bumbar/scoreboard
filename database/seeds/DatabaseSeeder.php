@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
     {
         //DB::table('users')->truncate();
         //DB::table('cities')->truncate();
-        DB::table('passengers')->truncate();
-        DB::table('departures')->truncate();
+        //DB::table('passengers')->truncate();
+        //DB::table('departures')->truncate();
 
         //$this->call(UsersTableSeeder::class);
         //$this->call(CitiesTableSeeder::class);
