@@ -33,9 +33,9 @@ class Departure extends Model
      */
     public function scopeOnlyNew($query)
     {
-        $now = (new \DateTime())->format('H:i:s'); //current date/time
-
-        return $query->whereTime('departure_at', '>=', $now);
+        return $query
+            ->whereDate('departure_at', '=', date('Y-m-d'))
+            ->whereTime('departure_at', '>=', date('H:i:s'));
     }
 
     public function cityFrom()
