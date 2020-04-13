@@ -94,9 +94,11 @@
                                     <li class="list-group-item" style="font-size:16px">
                                         <a href="/departures?from={{ $city->id }}">{{ $city->name }}</a>
                                         <div class="float-md-right">
-                                            <a href="/departures?from={{ $city->id }}">От</a>
+                                            <a href="/departures?from={{ $city->id }}">От
+                                                <span class="badge badge-info"> {{ $city->cnt }} </span>
+                                            </a>
                                             <a href="/departures?to={{ $city->id }}">До</a>
-                                            <span class="badge badge-info"> {{ $city->cnt }} </span>
+
                                         </div>
                                     </li>
                                 @endforeach
