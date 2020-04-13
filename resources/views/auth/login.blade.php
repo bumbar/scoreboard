@@ -63,6 +63,11 @@
                                     </a>
                                 @endif
                             </div>
+                            <div>
+                                user: dracula@vlad.com<br>
+                                pass: password
+                            </div>
+
                         </div>
                     </form>
                 </div>
