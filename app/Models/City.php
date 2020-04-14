@@ -24,12 +24,11 @@ class City extends Model
      */
     public function sectionsCitiesFromDepartures()
     {
-        $now = (new \DateTime())->format('H:i:s');
-
         return $this->hasOne(Departure::class, 'from_id')
             ->selectRaw('cities.id, cities.name, cities.slug, count(*) as count')
             ->join('cities', 'cities.id', 'from_id')
-            ->whereTime('departure_at', '>=', $now)
+            ->whereDate('departures.departure_at', '=', date('Y-m-d'))
+            ->whereTime('departures.departure_at', '>=', date('H:i:s'))
             ->groupBy('from_id');
     }
 
@@ -41,12 +40,11 @@ class City extends Model
      */
     public function sectionsCitiesToDepartures()
     {
-        $now = (new \DateTime())->format('H:i:s');
-
         return $this->hasOne(Departure::class, 'to_id')
             ->selectRaw('cities.id, cities.name, cities.slug, count(*) as count')
             ->join('cities', 'cities.id', 'to_id')
-            ->whereTime('departure_at', '>=', $now)
+            ->whereDate('departures.departure_at', '=', date('Y-m-d'))
+            ->whereTime('departures.departure_at', '>=', date('H:i:s'))
             ->groupBy('to_id');
     }
 }

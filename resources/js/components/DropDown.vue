@@ -57,6 +57,9 @@
                 this.active_el = el;
             },
             fromOrTo(el, query, id) {
+                if (window.location.pathname === '/departures') {
+                    window.location = '?' + query + '=' + id;
+                }
                 this.$store.dispatch('addFromOrToCity', { query, id });
             },
             clearSession() {
