@@ -3,7 +3,7 @@
         <ul>
             <li style="list-style-type: none; margin-left: -3px;">
                 <button @click="clearSession" style="color: #2a9055; width: 310px" class="btn btn-warning m-1">Опресняване на таблото
-                    <i class="fa fa-refresh" aria-hidden="true"></i></button>
+                    &nbsp;&nbsp;<i class="fa fa-refresh" aria-hidden="true"></i></button>
             </li>
         </ul>
 
