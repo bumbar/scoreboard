@@ -34,8 +34,8 @@ class Departure extends Model
     public function scopeOnlyNew($query)
     {
         return $query
-            ->whereDate('departure_at', '=', date('Y-m-d'))
-            ->whereTime('departure_at', '>=', date('H:i:s'));
+            ->whereDate('departures.departure_at', '=', date('Y-m-d'))
+            ->whereTime('departures.departure_at', '>=', date('H:i:s'));
     }
 
     public function cityFrom()

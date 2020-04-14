@@ -89,20 +89,7 @@
                     <div class="row">
                         <div class="col-md-4">
                             @if (request()->is('departures'))
-                                <ul id="list-group">
-                                @foreach($cities as $city)
-                                    <li class="list-group-item" style="font-size:16px">
-                                        <a href="/departures?from={{ $city->id }}">{{ $city->name }}</a>
-                                        <div class="float-md-right">
-                                            <a href="/departures?from={{ $city->id }}">От
-                                                <span class="badge badge-info"> {{ $city->cnt }} </span>
-                                            </a>
-                                            <a href="/departures?to={{ $city->id }}">До</a>
-
-                                        </div>
-                                    </li>
-                                @endforeach
-                                </ul>
+                                <drop-down></drop-down>
 
                                 <ul class="list-group mt-3">
                                     <li class="list-group-item">
