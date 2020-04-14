@@ -1,7 +1,12 @@
 <template>
     <div>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button @click="clearSession" class="btn btn-warning m-2">Опресняване на таблото&nbsp;&nbsp;
-            <i class="fa fa-refresh" aria-hidden="true"></i></button>
+        <ul>
+            <li style="list-style-type: none; margin-left: -3px;">
+                <button @click="clearSession" style="color: #2a9055; width: 310px" class="btn btn-warning m-1">Опресняване на таблото
+                    &nbsp;&nbsp;<i class="fa fa-refresh" aria-hidden="true"></i></button>
+            </li>
+        </ul>
+
         <ul id="list-group">
             <li v-if="cities[index].from || cities[index].to" :key="index" class="list-group-item" style="font-size:16px" v-for="(item, index) in cities">
 
