@@ -12,7 +12,7 @@ class Departure extends Model
     use SoftDeletes, Searchable;
 
     protected $fillable = [
-        'from_id', 'to_id', 'departure_at', 'user_id', 'places', 'price'
+        'from_id', 'to_id', 'departure_at', 'user_id', 'places', 'price', 'delayed_at',
     ];
 
     /**

@@ -10,6 +10,7 @@
             [свободни / налични]
             </th>
             <th>Оставащо време</th>
+            <th>Закъснение</th>
             </thead>
             <tbody>
                 <tr :class="{ warning : warning_el[item.id] === item.id }" :key='index' v-for="(item, index) in departures">
@@ -24,6 +25,7 @@
                         , <span style="color: #2a9055">{{item.places}}</span>
                     </td>
                     <td>{{ diff_minutes(item.departure_at, item.id) }}</td>
+                    <td>10 мин.</td>
                 </tr>
             </tbody>
         </table>
