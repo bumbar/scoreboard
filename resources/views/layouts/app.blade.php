@@ -28,6 +28,15 @@
                 <a class="navbar-brand" href="{{ route('departures.index') }}">
                     Администрация
                 </a>
+
+                @auth
+                    @if(auth()->user()->isAdmin())
+                        //&nbsp;&nbsp;<a class="navbar-brand" href="{{ route('delays.index') }}">
+                            Закъснения
+                        </a>
+                    @endif
+                @endauth
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
