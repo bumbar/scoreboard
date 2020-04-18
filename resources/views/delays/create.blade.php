@@ -61,9 +61,10 @@
         </div>
 
         <div class="form-group">
-            <label for="delayed_minutes">Или задай минути на закъснение</label>
-            <input type="text" style="width: 100px" class="form-control" name="delayed_minutes" id='delayed_minutes'
-                   value="">
+            <label for="delayed_minutes">Минути на закъснение</label>
+            <input disabled type="text" style="width: 100px" class="form-control" name="delayed_minutes" id='delayed_minutes'
+                   value=""> минути<br>
+            <span id="warn_delay" style="color: red"></span>
         </div>
 
         <input type="hidden" name="id" value="{{ isset($delay) ? $delay->id : '' }}">
@@ -82,25 +83,32 @@
 @section('scripts')
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script>
-    flatpickr('#delayed_at', {
-        //noCalendar: true,
-        //dateFormat: "H:i",
-      enableTime: true,
-      enableSeconds: true
-    })
+      flatpickr('#delayed_at', {
+          //noCalendar: true,
+          //dateFormat: "H:i",
+          enableTime: true,
+          enableSeconds: true,
+          minuteIncrement: 1,
+          onClose: function (selectedDates, dateStr, instance) {
+              $('#delayed_minutes').val(getMinutesBetweenDates(dateStr));
+          },
+      })
+
+      function getMinutesBetweenDates(delayed) {
+          let delay = new Date(delayed);
+          let departure = new Date($('#departure_at').val());
+
+          let diff = (delay.getTime() - departure.getTime()) / 1000;
+          diff /= 60;
+
+          if(Math.sign(diff) > 0) { //check positive minutes
+              return Math.abs(Math.round(diff));
+          } else {
+              $('#warn_delay').text('Моля, въведете по-късен час.');
+          }
+      }
+
   </script>
-
-  <script>
-  $('#delayed_minutes').val(999);
-
-  function getMinutesBetweenDates(startDate, endDate) {
-      let diff = Math.abs(new Date(endDate) - new Date(startDate));
-      return Math.floor((diff/1000)/60);
-  }
-
-  </script>
-
-
 @endsection
 
 @section('css')

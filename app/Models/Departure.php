@@ -22,6 +22,7 @@ class Departure extends Model
      */
     protected $casts = [
         'departure_at' => 'datetime',
+        'delayed_at' => 'datetime',
     ];
 
     /**
@@ -56,6 +57,13 @@ class Departure extends Model
     public function passengers()
     {
         return $this->hasMany(Passenger::class);
+    }
+
+    public function getMinutesBetweenDates($startDate, $endDate)
+    {
+        $to_time = strtotime($endDate);
+        $from_time = strtotime($startDate);
+        return ceil(round(abs($to_time - $from_time) / 60, 2)). " мин.";
     }
 
 //    public function scopeFilterByFromOrToCity($builder)
