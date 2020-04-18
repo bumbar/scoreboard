@@ -24,7 +24,7 @@ class DelayRequest extends FormRequest
     public function rules()
     {
         return [
-            'delayed_at' => 'required|date_format:Y-m-d H:i:s'
+            'delayed_at' => 'required|date_format:Y-m-d H:i:s|after:departure_at'
         ];
     }
 }

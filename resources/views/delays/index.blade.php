@@ -29,7 +29,11 @@
                             @if(is_null($delay->delayed_at))
                                 ---
                             @else
-                            <span style="color: red">{{ \Carbon\Carbon::parse($delay->delayed_at)->format('j F, Y H:i:s') }}</span>
+                            <span style="color: red">{{ \Carbon\Carbon::parse($delay->delayed_at)->format('j F, Y H:i:s') }}
+                                (<span style="color: red; font-weight: bold" id="diff_minutes">
+                                    {{ $delay->getMinutesBetweenDates($delay->departure_at, $delay->delayed_at) }}
+                                </span>)
+                            </span>
                             @endif
                         </td>
                         <td>

@@ -21,6 +21,7 @@ class Departures extends JsonResource
             'places' => $this->places,
             //'passengers' => $this->countPassengersByDestination,
             'departure_at' => $this->departure_at,
+            'delayed_at' => $this->delayed_at,
             //'cnt' => $this->loadCount('passengers')
             'passengers_count' => $this->passengers->count(),
         ];

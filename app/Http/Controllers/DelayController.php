@@ -21,7 +21,7 @@ class DelayController extends Controller
         $delays = Departure::with(['cityFrom', 'cityTo'])
             ->onlyNew()
             //->whereNotNull('delayed_at')
-            ->orderBy('delayed_at', 'asc')
+            ->orderBy('departure_at', 'asc')
             ->paginate(20);
 
         if (request()->wantsJson()) {
@@ -68,7 +68,7 @@ class DelayController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Departure $departure
+     * @param Departure $delay
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function edit(Departure $delay)
@@ -82,7 +82,6 @@ class DelayController extends Controller
      * Update the specified resource in storage.
      *
      * @param DelayRequest $request
-     * @param Departure $departure
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function update(DelayRequest $request)

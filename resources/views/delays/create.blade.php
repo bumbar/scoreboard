@@ -99,8 +99,6 @@
   }
 
   </script>
-
-
 @endsection
 
 @section('css')
