@@ -37,7 +37,7 @@
                             @endif
                         </td>
                         <td>
-                            <a href="{{ route('delays.edit', $delay) }}" class="btn btn-info btn-sm">Редактирай</a>
+                            <a href="{{ route('delays.edit', $delay) }}" class="btn btn-info btn-sm">Редактирай закъснение</a>
                         </td>
                         <td>
                             <form action="{{ route('delays.destroy', $delay->id) }}" method="POST">

@@ -62,7 +62,7 @@
 
         <div class="form-group">
             <label for="delayed_minutes">Минути на закъснение</label>
-            <input disabled type="text" style="width: 100px" class="form-control" name="delayed_minutes" id='delayed_minutes'
+            <input type="text" style="width: 100px" class="form-control" name="delayed_minutes" id='delayed_minutes'
                    value=""> минути<br>
             <span id="warn_delay" style="color: red"></span>
         </div>
@@ -94,6 +94,34 @@
           },
       })
 
+        // Todo add setTimeDelay()
+
+      // function setTimeDelay() {
+      //     let departure = new Date($('#departure_at').val());
+      //
+      //     let add_minutes = departure.setMinutes(departure.getMinutes() + $('#delayed_minutes').val());
+      //     $('#delayed_at').val(new Date(add_minutes));
+      //
+      //     //const fp = flatpickr("#delayed_at", {});
+      //     //const myInput = $('#delayed_minutes').val();
+      //     //const fp = flatpickr(myInput, {});  // flatpickr
+      //
+      // }
+
+      window.addEventListener('load', () => {
+          let d = $('#delayed_at');
+
+          if(d.val()) {
+              let delay = new Date(d.val());
+              let departure = new Date($('#departure_at').val());
+
+              let diff = (delay.getTime() - departure.getTime()) / 1000;
+              diff /= 60;
+
+              $('#delayed_minutes').val(Math.abs(Math.round(diff)));
+          }
+      });
+
       function getMinutesBetweenDates(delayed) {
           let delay = new Date(delayed);
           let departure = new Date($('#departure_at').val());
@@ -107,7 +135,6 @@
               $('#warn_delay').text('Моля, въведете по-късен час.');
           }
       }
-
   </script>
 @endsection
 
